@@ -1,0 +1,21 @@
+{
+  "name": "Dojo Theodo Nantes - Site web de suggestion de films",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node",
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["README.md"]
+    },
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "ms-vscode.vscode-typescript-next",
+        "christian-kohler.npm-intellisense",
+        "christian-kohler.path-intellisense",
+        "postman.postman-for-vscode",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "postCreateCommand": "bash -c 'cd frontend && npm install && npm run start & cd ../backend && npm install && npm run start'",
+  "forwardPorts": [8000, 3000]
+}
