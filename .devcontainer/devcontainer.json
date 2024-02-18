@@ -3,7 +3,7 @@
   "image": "mcr.microsoft.com/devcontainers/javascript-node",
   "customizations": {
     "codespaces": {
-      "openFiles": ["README.md"]
+      "openFiles": ["backend/.env", "README.md"]
     },
     "vscode": {
       "settings": {},
@@ -16,6 +16,16 @@
       ]
     }
   },
-  "postCreateCommand": "bash -c 'cd frontend && npm install && npm run start & cd ../backend && npm install && npm run start'",
-  "forwardPorts": [8000, 3000]
+  "postAttachCommand": "cd frontend && npm install && cd ../backend && npm install",
+  "forwardPorts": [8000, 3000],
+  "portsAttributes": {
+    "8000": {
+      "label": "API - Movies",
+      "onAutoForward": "ignore"
+    },
+    "3000": {
+      "label": "Webapp - Site web de suggestion de films",
+      "onAutoForward": "openBrowser"
+    }
+  }
 }

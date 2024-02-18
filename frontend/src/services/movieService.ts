@@ -1,7 +1,9 @@
 import axios from "axios";
 import { Genre, Movie } from "../models";
 
-const BASE_URL_API = "http://localhost:8000/cine-project";
+const BASE_URL_API = process.env.REACT_APP_CODESPACES
+  ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/cine-project`
+  : "http://localhost:8000/cine-project";
 
 export const getPopularMovies = async (page: number) => {
   const response = await axios.get<Movie[]>(
