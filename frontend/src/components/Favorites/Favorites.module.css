@@ -1,0 +1,13 @@
+.layout {
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.isFavorite {
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 0 10px 5px gold;
+}

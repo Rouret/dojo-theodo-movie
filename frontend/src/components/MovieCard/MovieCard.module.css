@@ -1,0 +1,64 @@
+.movieCard {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid dimgray;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 400px;
+}
+
+.movieCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.moviePoster {
+  height: 300px;
+  background-size: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.movieInfo {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  background-color: #333;
+  overflow: hidden;
+}
+
+.movieTitle {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.starRating {
+  display: flex;
+  justify-content: center;
+}
+
+.star {
+  font-size: 20px;
+  margin: 0 2px;
+  color: #ddd;
+}
+
+.orange {
+  color: orange;
+}
+
+.isFavorite {
+  box-shadow: 0 0 10px 2px gold;
+}
