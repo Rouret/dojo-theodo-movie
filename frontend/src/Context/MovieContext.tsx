@@ -34,7 +34,7 @@ export const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
     try {
       // Appel à l'API pour récupérer les films populaires
       const popularMovies = await apiService.getPopularMovies(pageNumber);
-      setFilteredMovies(popularMovies);
+      setFilteredMovies(filteredMovies.concat(popularMovies));
     } catch (error) {
       console.error("Error fetching popular movies:", error);
     }
