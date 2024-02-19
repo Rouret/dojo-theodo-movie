@@ -34,7 +34,6 @@ export const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
     try {
       // Appel à l'API pour récupérer les films populaires
       const popularMovies = await apiService.getPopularMovies(pageNumber);
-      setFetchedMovies(popularMovies);
       setFilteredMovies(popularMovies);
     } catch (error) {
       console.error("Error fetching popular movies:", error);
@@ -58,7 +57,7 @@ export const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
   };
 
   useEffect(() => {
-    getMovies();
+    getPopularMovies();
   }, [pageNumber]);
 
   useEffect(() => {
@@ -68,7 +67,7 @@ export const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
   }, [filteredMovies]);
 
   const getNextPage = async () => {
-    // Mettre à jour le numéro de page
+    setPageNumber(pageNumber + 1);
   };
 
   return (

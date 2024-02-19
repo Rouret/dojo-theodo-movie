@@ -6,7 +6,21 @@ import { useMovies } from "../../Context/MovieContext";
 import { useEffect } from "react";
 
 export const MovieList = () => {
-  const { getPopularMovies, movies } = useMovies();
+  const { getPopularMovies, movies, getNextPage } = useMovies();
+
+  const handleScroll = () => {
+    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+    if (scrollTop + clientHeight >= scrollHeight - 20) {
+      getNextPage();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [movies]);
 
   useEffect(() => {
     getPopularMovies();
