@@ -1,22 +1,20 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import axios from "axios";
+import * as apiService from "../services/movieService";
 import { Movie } from "../models";
 
 interface MovieContextType {
-  fetchedMovies: Movie[];
   getPopularMovies: () => Promise<void>;
   getSearchedMovies: (searchText: string) => Promise<void>;
   getNextPage: () => Promise<void>;
-  filteredMovies: Movie[];
+  movies: Movie[];
   filterMoviesByGenres: (selectedGenres: number[]) => Promise<void>;
 }
 
 export const MovieContext = createContext<MovieContextType>({
-  fetchedMovies: [],
   getPopularMovies: async () => {},
   getSearchedMovies: async (searchText: string) => {},
   getNextPage: async () => {},
-  filteredMovies: [],
+  movies: [],
   filterMoviesByGenres: async (selectedGenres: number[]) => {},
 });
 
@@ -29,12 +27,15 @@ export const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
   const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
   const [checkedGenres, setCheckedGenres] = useState<number[]>([]);
   const [pageNumber, setPageNumber] = useState(1);
-  const [fetchType, setFetchType] = useState<"popular" | "searched">("popular");
   const [searchText, setSearchText] = useState("");
+  const [fetchType, setFetchType] = useState<"popular" | "searched">("popular");
 
   const getPopularMovies = async () => {
     try {
       // Appel à l'API pour récupérer les films populaires
+      const popularMovies = await apiService.getPopularMovies(pageNumber);
+      setFetchedMovies(popularMovies);
+      setFilteredMovies(popularMovies);
     } catch (error) {
       console.error("Error fetching popular movies:", error);
     }
@@ -73,11 +74,10 @@ export const MovieProvider: React.FC<MovieProviderProps> = ({ children }) => {
   return (
     <MovieContext.Provider
       value={{
-        fetchedMovies,
+        movies: filteredMovies,
         getPopularMovies,
         getSearchedMovies,
         getNextPage,
-        filteredMovies,
         filterMoviesByGenres,
       }}
     >
