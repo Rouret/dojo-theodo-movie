@@ -16,7 +16,7 @@
       ]
     }
   },
-  "postAttachCommand": "cd frontend && npm install && cd ../backend && npm install",
+  "postAttachCommand": "cd frontend && npm install && cd ../backend && npm install && cd ..",
   "forwardPorts": [8000, 3000],
   "portsAttributes": {
     "8000": {
