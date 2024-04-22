@@ -28,6 +28,7 @@ function App() {
             <Route path="/favorites" element={<FavoriteMovies />} />
             <Route path="/movie/:id" element={<MovieDetails />} />
           </Routes>
+          AAAA
         </MovieProvider>
       </BrowserRouter>
     </QueryClientProvider>
