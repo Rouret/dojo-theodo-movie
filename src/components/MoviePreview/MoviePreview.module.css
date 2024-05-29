@@ -1,2 +1,64 @@
 .movieCard {
+    display : flex;
+    justify-content : center;
+    flex-direction: column;
+    border-radius: 60px;
+    border-color: lightgray;
+    border-style: solid;
+    column-gap: 0px;
+    overflow: hidden;
+    
+    
+    
+}
+
+.movieTitle {
+    order : 2;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    background-color: gray;
+
+    height: 50px;
+    line-height: 50px;
+        
+    
+
+}
+
+.moviePoster {
+    order : 1;
+    height: 95%;
+    top : 0%;
+    border-top-right-radius: 60px;
+    border-top-left-radius: 60px;
+    height: 300px;
+}
+
+.movieNote {
+    order: 3;
+    display: flex;
+    flex-direction: row;
+    background-color: gray;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    justify-content: center;
+    height: 50px;
+
+}
+
+.Star {
+    font-size: 16px;
+
+
+}
+
+.Yellow {
+    color : yellow;
+
+}
+
+.Green {
+    color: white;
+
 }
